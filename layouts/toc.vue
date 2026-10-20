@@ -13,8 +13,8 @@ withDefaults(defineProps<{
 <template>
   <div class="slidev-layout micanis-layout">
     <MicanisFrame>
-      <div class="grid size-full min-h-0 grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] items-center gap-16 overflow-hidden">
-        <header class="max-h-full min-w-0 overflow-hidden text-5xl font-bold text-neutral-900 [&_h1]:!mb-5 [&_h1]:!text-5xl [&_p]:!m-0 [&_p]:!text-5xl [&_p]:!font-bold">
+      <div data-micanis-clip class="grid size-full min-h-0 grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] items-center gap-16 overflow-hidden">
+        <header data-micanis-clip class="max-h-full min-w-0 overflow-hidden text-5xl font-bold text-neutral-900 [&_h1]:!mb-5 [&_h1]:!text-5xl [&_p]:!m-0 [&_p]:!text-5xl [&_p]:!font-bold">
           <div v-if="label" class="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-neutral-600">{{ label }}</div>
           <slot name="title">
             <h1>目次</h1>
@@ -27,6 +27,7 @@ withDefaults(defineProps<{
           are indented once, smaller and unnumbered. Links have no underline.
         -->
         <section
+          data-micanis-clip
           class="max-h-full min-w-0 overflow-hidden py-4
             [&_.slidev-toc-list]:!m-0 [&_.slidev-toc-list]:!list-none [&_.slidev-toc-list]:!ps-0 [&_.slidev-toc-list]:[counter-reset:toc-item]
             [&_.slidev-toc-item]:relative [&_.slidev-toc-item]:mb-3 [&_.slidev-toc-item]:ps-11 [&_.slidev-toc-item]:[counter-increment:toc-item]

@@ -27,6 +27,7 @@ function withoutClass(attrs: Record<string, unknown>) {
 
 <template>
   <header
+    data-micanis-clip
     v-bind="withoutClass($attrs)"
     :class="cn(title({ variant: isTut ? 'tut' : 'default' }), $attrs.class as ClassValue)"
   >

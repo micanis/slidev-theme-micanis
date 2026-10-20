@@ -60,17 +60,29 @@ function check() {
   const el = root.value
   if (!el)
     return
-  // A clipping element hides a descendant when the descendant's box crosses
-  // its own box. (scrollHeight also counts trailing margins, which are
-  // invisible, so it reports false positives.) Rects are compared with rects
-  // because the slide is scaled.
-  const clipped = [el, ...el.querySelectorAll<HTMLElement>('*')].filter((node) => {
-    if (getComputedStyle(node).overflow !== 'hidden')
-      return false
-    const box = node.getBoundingClientRect()
-    return [...node.querySelectorAll('*')].some((child) => {
+  // Only the theme's own regions are checked: the frame and the elements the
+  // layouts mark with data-micanis-clip. A region hides a descendant when the
+  // descendant's box crosses its own box. (scrollHeight also counts trailing
+  // margins, which are invisible, so it reports false positives.) Rects are
+  // compared with rects because the slide is scaled.
+  const regions = [el, ...el.querySelectorAll<HTMLElement>('[data-micanis-clip]')]
+  // Content inside another clipping element in between (a slide's own
+  // overflow-hidden box, e.g. a zoomed crop, or a nested region) is that
+  // element's business, not this region's.
+  const clippedInBetween = (child: Element, region: Element) => {
+    for (let node = child.parentElement; node && node !== region; node = node.parentElement) {
+      if (getComputedStyle(node).overflow !== 'visible')
+        return true
+    }
+    return false
+  }
+  const clipped = regions.filter((region) => {
+    const box = region.getBoundingClientRect()
+    return [...region.querySelectorAll('*')].some((child) => {
       const r = child.getBoundingClientRect()
-      return r.width > 0 && r.height > 0 && (r.bottom > box.bottom + 1 || r.right > box.right + 1)
+      return r.width > 0 && r.height > 0
+        && (r.bottom > box.bottom + 1 || r.right > box.right + 1)
+        && !clippedInBetween(child, region)
     })
   })
   const next = clipped.length > 0

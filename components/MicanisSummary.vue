@@ -14,6 +14,7 @@ function withoutClass(attrs: Record<string, unknown>) {
 
 <template>
   <footer
+    data-micanis-clip
     v-bind="withoutClass($attrs)"
     :class="cn('flex h-[4.4rem] w-full shrink-0 items-center overflow-hidden border-t border-neutral-200 px-[2%] py-3 text-2xl font-semibold leading-snug text-neutral-800 [&_p]:!m-0 [&_p]:!text-2xl [&_p]:!leading-snug', $attrs.class as ClassValue)"
   >

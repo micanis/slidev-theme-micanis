@@ -27,7 +27,7 @@ const gridStyle = computed(() => ({
 <template>
   <div class="slidev-layout micanis-layout">
     <MicanisFrame wide :titled="!!(pageTitle || $slots.title)">
-      <div class="flex size-full min-h-0 flex-col overflow-hidden">
+      <div data-micanis-clip class="flex size-full min-h-0 flex-col overflow-hidden">
         <MicanisTitle v-if="pageTitle || $slots.title">
           <slot name="title">
             <h1>{{ pageTitle }}</h1>
@@ -35,8 +35,8 @@ const gridStyle = computed(() => ({
         </MicanisTitle>
 
         <!-- pt-8 + py-2 = pt-10 of the default layout, so the body starts at the same height -->
-        <div class="grid min-h-0 min-w-0 flex-1 overflow-hidden px-[2%] pt-8" :style="gridStyle">
-          <section v-for="index in count" :key="index" class="min-h-0 min-w-0 overflow-hidden py-2">
+        <div data-micanis-clip class="grid min-h-0 min-w-0 flex-1 overflow-hidden px-[2%] pt-8" :style="gridStyle">
+          <section v-for="index in count" :key="index" data-micanis-clip class="min-h-0 min-w-0 overflow-hidden py-2">
             <slot :name="index === 1 ? 'default' : `column-${index}`" />
           </section>
         </div>

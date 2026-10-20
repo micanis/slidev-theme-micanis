@@ -12,8 +12,8 @@ withDefaults(defineProps<{
 <template>
   <div class="slidev-layout micanis-layout">
     <MicanisFrame :page-number="false">
-      <div class="flex size-full min-h-0 flex-col items-center justify-center overflow-hidden px-24 pb-8 pt-4 text-center">
-        <header class="w-[88%] max-w-[58rem] overflow-hidden text-5xl font-bold leading-tight text-neutral-900 [&_h1]:!m-0 [&_h1]:!text-5xl [&_h1]:!leading-tight [&_p]:!m-0 [&_p]:!text-5xl [&_p]:!font-bold [&_p]:!leading-tight">
+      <div data-micanis-clip class="flex size-full min-h-0 flex-col items-center justify-center overflow-hidden px-24 pb-8 pt-4 text-center">
+        <header data-micanis-clip class="w-[88%] max-w-[58rem] overflow-hidden text-5xl font-bold leading-tight text-neutral-900 [&_h1]:!m-0 [&_h1]:!text-5xl [&_h1]:!leading-tight [&_p]:!m-0 [&_p]:!text-5xl [&_p]:!font-bold [&_p]:!leading-tight">
           <slot name="title">
             <h1 v-if="heading">{{ heading }}</h1>
           </slot>
