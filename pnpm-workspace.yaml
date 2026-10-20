@@ -1,0 +1,4 @@
+# pnpm 11 fails the install on unapproved build scripts. @slidev/cli depends on
+# playwright-chromium (used by `slidev export`), whose postinstall downloads Chromium.
+allowBuilds:
+  playwright-chromium: true

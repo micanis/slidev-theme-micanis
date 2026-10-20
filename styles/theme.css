@@ -1,0 +1,93 @@
+/* Base typography written with Tailwind-compatible @apply (UnoCSS).
+   Layout structure and the tut / default variants live in layouts/ and
+   components/ as utility classes. */
+
+/* MicanisFrame sets --micanis-accent to var(--tut-navy) in the tut variant */
+:root {
+  --tut-navy: #302c7d;
+  --micanis-accent: #4f46e5;
+}
+
+.slidev-slide-container {
+  @apply bg-white text-neutral-800;
+}
+
+.slidev-layout.micanis-layout {
+  @apply relative isolate size-full overflow-hidden bg-white p-0 text-neutral-800;
+  /* Japanese line breaking: strict kinsoku, break between phrases (needs
+     lang="ja", the theme default via htmlAttrs), avoid a short last line */
+  line-break: strict;
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+
+.micanis-layout h1,
+.micanis-layout h2,
+.micanis-layout h3 {
+  @apply mt-0 font-bold tracking-tight text-neutral-900;
+}
+
+.micanis-layout h1 {
+  @apply mb-6 text-4xl leading-tight;
+}
+
+.micanis-layout h2 {
+  @apply mb-3 text-3xl leading-snug;
+}
+
+.micanis-layout h3 {
+  /* between body text (text-2xl) and h2 (text-3xl) */
+  @apply mb-2 text-[1.75rem] leading-snug;
+}
+
+.micanis-layout p,
+.micanis-layout ul,
+.micanis-layout ol {
+  @apply mt-0;
+}
+
+.micanis-layout p,
+.micanis-layout li {
+  @apply text-2xl leading-relaxed;
+}
+
+/* an image paragraph keeps a gap above the text that follows it */
+.micanis-layout p:has(> img) {
+  @apply mb-4;
+}
+
+/* captions and sources: secondary text, clearly smaller than body text */
+.micanis-layout figcaption,
+.micanis-layout small {
+  @apply mt-2 block text-base leading-snug text-neutral-500;
+}
+
+.micanis-layout strong {
+  @apply font-bold text-neutral-900;
+}
+
+.micanis-layout a {
+  /* border-b-0 drops the dashed border from Slidev's layouts-base.css */
+  @apply border-b-0 text-neutral-800 underline decoration-neutral-300 underline-offset-4;
+}
+
+.micanis-layout blockquote {
+  @apply my-4 border-l-4 border-neutral-400 bg-neutral-50 px-4 py-3 text-neutral-600;
+}
+
+.micanis-layout :not(pre) > code {
+  @apply rounded bg-neutral-100 px-1.5 py-0.5 text-neutral-800;
+}
+
+.micanis-layout table {
+  @apply w-full border-collapse;
+}
+
+.micanis-layout th,
+.micanis-layout td {
+  @apply border-b border-neutral-200 px-3 py-2 text-left;
+}
+
+.micanis-layout th {
+  @apply bg-neutral-100 font-bold text-neutral-900;
+}

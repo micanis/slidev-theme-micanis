@@ -1,0 +1,64 @@
+{
+  "name": "slidev-theme-micanis",
+  "version": "1.0.0",
+  "description": "A Tokyo University of Technology branded 16:9 Slidev theme",
+  "type": "module",
+  "private": true,
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "files": [
+    "assets",
+    "components",
+    "layouts",
+    "utils",
+    "styles"
+  ],
+  "slidev": {
+    "defaults": {
+      "aspectRatio": "16/9",
+      "canvasWidth": 1280,
+      "colorSchema": "light",
+      "fonts": {
+        "sans": "LINE Seed JP",
+        "mono": "ui-monospace",
+        "local": [
+          "ui-monospace"
+        ],
+        "provider": "google",
+        "weights": [
+          400,
+          500,
+          700,
+          800
+        ]
+      },
+      "htmlAttrs": {
+        "lang": "ja"
+      }
+    }
+  },
+  "scripts": {
+    "build": "slidev build example/slides.md",
+    "dev": "slidev example/slides.md --open",
+    "dev:tut": "slidev example/tut.md --open",
+    "export": "slidev export example/slides.md"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^53.0.0",
+    "vue": "^3.5.44"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "engines": {
+    "slidev": ">=52.0.0"
+  },
+  "packageManager": "pnpm@11.22.0"
+}
