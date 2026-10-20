@@ -36,7 +36,7 @@ npm install github:micanis/slidev-theme-micanis
 タグ・ブランチ・コミットを固定する場合は `#` で指定します。
 
 ```sh
-pnpm add github:micanis/slidev-theme-micanis#v1.0.0
+pnpm add github:micanis/slidev-theme-micanis#v1.0.1
 ```
 
 インストール後、`slides.md` の先頭でテーマ名（`slidev-theme-` を除いた部分）を指定します。

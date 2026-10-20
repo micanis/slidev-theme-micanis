@@ -1,6 +1,6 @@
 {
   "name": "slidev-theme-micanis",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Tokyo University of Technology branded 16:9 Slidev theme",
   "type": "module",
   "private": true,

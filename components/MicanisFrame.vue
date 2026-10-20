@@ -49,7 +49,11 @@ const accent = isTut ? { '--micanis-accent': 'var(--tut-navy)' } : undefined
 const { $page, $renderContext } = useSlideContext()
 const root = ref<HTMLElement>()
 const overflowing = ref(false)
-const showOutline = import.meta.env.DEV && $renderContext.value === 'slide'
+// `slidev export` also runs the dev server with renderContext "slide"; it opens
+// each slide with ?print (or the /export page), so exclude those explicitly
+const printing = typeof location !== 'undefined'
+  && (new URLSearchParams(location.search).has('print') || /\/export\b/.test(location.pathname + location.hash))
+const showOutline = import.meta.env.DEV && $renderContext.value === 'slide' && !printing
 let observer: ResizeObserver | undefined
 
 function check() {
