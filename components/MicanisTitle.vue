@@ -10,7 +10,7 @@ import { isTut } from '../utils/variant'
 defineOptions({ inheritAttrs: false })
 
 const title = cva(
-  'flex min-h-[5.2rem] shrink-0 items-center overflow-hidden text-4xl font-bold leading-tight text-neutral-900 [&_h1]:!m-0 [&_h1]:!text-4xl [&_h1]:!leading-tight [&_p]:!m-0 [&_p]:!text-4xl [&_p]:!font-bold [&_p]:!leading-tight',
+  'flex min-h-[4.5rem] shrink-0 items-center overflow-hidden text-4xl font-bold leading-tight text-neutral-900 [&_h1]:!m-0 [&_h1]:!text-4xl [&_h1]:!leading-tight [&_p]:!m-0 [&_p]:!text-4xl [&_p]:!font-bold [&_p]:!leading-tight',
   {
     variants: {
       // default: same 2% inset as the body, so the left edges line up

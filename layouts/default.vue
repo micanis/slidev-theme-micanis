@@ -23,7 +23,7 @@ const pageTitle = computed(() => slideTitle(props.heading, props.frontmatter))
         </MicanisTitle>
 
         <div
-          data-micanis-clip class="grid min-h-0 min-w-0 flex-1 overflow-hidden"
+          data-micanis-clip class="grid min-h-0 min-w-0 flex-1 overflow-hidden pt-3"
           :class="$slots.conc ? 'grid-rows-[minmax(0,1fr)_auto] gap-4' : 'grid-rows-[minmax(0,1fr)]'"
         >
           <section data-micanis-clip class="min-h-0 min-w-0 overflow-hidden px-[2%]">

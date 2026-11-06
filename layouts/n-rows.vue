@@ -35,7 +35,7 @@ const gridStyle = computed(() => ({
         </MicanisTitle>
 
         <!-- 3px + py-3 = 15px, matching the default layout -->
-        <div data-micanis-clip class="grid min-h-0 min-w-0 flex-1 overflow-hidden px-[2%]" :style="gridStyle">
+        <div data-micanis-clip class="grid min-h-0 min-w-0 flex-1 overflow-hidden px-[2%] pt-3" :style="gridStyle">
           <section
             v-for="index in count"
             :key="index"
